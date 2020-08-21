@@ -36,5 +36,36 @@
 # Guess the size of River : input from user : 5
 # you are the winner .
 #
-#
-#
+
+matrix = [
+[1,0,0,1,0],
+[1,0,1,0,0],
+[0,0,1,0,1],
+[1,0,1,0,1],
+[1,0,1,1,0],
+]
+
+size_list=[]
+def RiverSizes(matrix):
+	size=0
+	for i in range(len(matrix)):
+		for j in range(len(matrix[i])):
+			# print(matrix[i],matrix[i][j])
+			if matrix[i][j]==1:
+				size=1
+				print(i, j,'size = ',size)
+
+				if i < (len(matrix)-1):
+					if matrix[i+1][j]==1:
+						size += 1
+						print(i,j,'size = ',size)
+						size_list.append(size)
+					else:
+						continue
+
+						# print(i,j,matrix[i+1][j])
+	print(size_list)
+	return size_list
+
+print(RiverSizes(matrix))
+print('hello')
