@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME PAGE</title>
+
+</head>
+<body>
+    <h2>Home Page Screen</h2>
+    {% if user.is_authenticated %}
+    <p>Hello {{user.username}}</p>
+        <button type='submit'>About Us</button>
+
+    <form method="GET" action="{% url 'blog' %}">
+        <button type='submit'>Create Blog</button>
+    </form>
+
+        <button type='submit'>Update Blog</button>
+        <button type='submit'>Delete Blog</button>
+    <form method="GET" action="{% url 'login' %}" >
+        <button type='submit'>logout</button>
+    </form>
+    {% else %}
+    <p><a href="{% url 'signup' %}">signup</a></p>
+    <p><a href="{% url 'login' %}">login</a></p>
+    {% endif %}
+</body>
+</html>
